@@ -1,13 +1,26 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
-
-<% if ENV['URL'] %>
-  URL: <%= ENV['URL'] %>
-<% end %>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<div class="container">
+  <h1 class="text-center"><%= @plan.title %></h1>
+  <div class="row">
+    <div class="col-md-8">
+      <div class="text-center"><%= image_tag(@plan.image) %></div>
+      <div><%= @plan.body %></div>
+    </div>
+    <div class="col-md-4">
+      <div class="h4 text-center" style="background-color: #ccc; border-radius: 5px; padding: 10px;">
+        <%= image_tag(@plan.user.profile_image + "?type=large") %><br>
+        <p class="h4">このプランの作成者<br><%= @plan.user.name %></p>
+        <p><%= @plan.user.profile %></p>
+      </div>
+      <div>
+        <%= link_to("このプランを申し込む", new_plan_booking_path(@plan), class: "btn btn-primary") %>
+      </div>
+      <div>
+        <ul>
+          <% @plan.days.each do |day| %>
+            <li><%= radio_button('day', day.met_at, day.met_at) %> <%= day.met_at %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
