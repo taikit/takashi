@@ -28,7 +28,8 @@
         <div class="input-group-addon">$</div>
         <%= f.text_field :amount, class: "form-control" %></div>
     </div>
-    <div class="field form-group"><%= f.label :area, "地域" %> : <%= f.text_field :area, class: "form-control" %></div>
+    <div class="field form-group"><%= f.label :area, "Area" %> : <%= f.collection_select :area_id, Area.all, :id, :name %></div>
+    <div class="field form-group"><%= f.label :area, "Category" %> : <%= f.collection_select :category_id, Category.all, :id, :name %></div>
     <div class="field form-group">
       <%= f.label :amount, "Day" %> :
       <%= f.fields_for :days do |day_f| %>
