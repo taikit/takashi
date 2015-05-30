@@ -65,7 +65,7 @@
   border-right: 1px solid #eee;
 }
 
-.container{
+.ib{
   display: inline-block;
 }
 
@@ -82,7 +82,13 @@
 
 
 /* ===plans index==================================================== */
+.table_tit , .table_img, .table_text{
+  padding:5px;
+}
 
+.table_text{
+  margin:0 15px 30px 15px;
+}
 
 
 /* ===plane edit==================================================== */
@@ -94,7 +100,9 @@
 
 
 /* ===plans show==================================================== */
-
+.show_co{
+  margin-top: 100px;
+}
 
 
 /* ===pay==================================================== */
