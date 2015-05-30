@@ -4,4 +4,5 @@ class Plan < ActiveRecord::Base
   belongs_to :user
   has_many :days
   has_one :booking
+  accepts_nested_attributes_for :days, allow_destroy: true
 end
