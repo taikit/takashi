@@ -11,6 +11,16 @@
         <p class="h4">このプランの作成者<br><%= @plan.user.name %></p>
         <p><%= @plan.user.profile %></p>
       </div>
+      <div>
+        <%= link_to("このプランを申し込む", new_plan_booking_path(@plan), class: "btn btn-primary") %>
+      </div>
+      <div>
+        <ul>
+          <% @plan.days.each do |day| %>
+            <li><%= radio_button('day', day.met_at, day.met_at) %> <%= day.met_at %></li>
+          <% end %>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
