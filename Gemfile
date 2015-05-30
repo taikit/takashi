@@ -62,7 +62,9 @@ gem 'omniauth-facebook'
 gem 'figaro'
 gem 'webpay'
 gem 'carrierwave'
-gem 'rmagick'
+unless RUBY_PLATFORM =~ /mingw/
+  gem 'rmagick'
+end
 gem 'nested_form'
 gem 'redactor-rails'
 group :development do
