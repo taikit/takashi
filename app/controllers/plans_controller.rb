@@ -69,6 +69,6 @@ class PlansController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def plan_params
-    params.require(:plan).permit(:name, :days_attributes => [:id, :met_id, :plan_id, :_destroy])
+    params.require(:plan).permit(:name,:image, :days_attributes => [:id, :met_id, :plan_id, :_destroy])
   end
 end
