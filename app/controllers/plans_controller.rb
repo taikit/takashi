@@ -1,5 +1,6 @@
 class PlansController < ApplicationController
   before_action :set_plan, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, :except => [:index, :show]
 
   # GET /plans
   # GET /plans.json
@@ -25,7 +26,7 @@ class PlansController < ApplicationController
   # POST /plans.json
   def create
     @plan = Plan.new(plan_params)
-
+    @plan.user = current_user
     respond_to do |format|
       if @plan.save
         format.html { redirect_to @plan, notice: 'Plan was successfully created.' }
@@ -69,6 +70,6 @@ class PlansController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def plan_params
-    params.require(:plan).permit(:name, :image, :area_id, :days_attributes => [:id, :met_id, :plan_id, :_destroy])
+    params.require(:plan).permit(:title, :image, :area_id, :category_id, :body, :amount, :days_attributes => [:id, :met_at, :plan_id, :_destroy])
   end
 end
