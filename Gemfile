@@ -61,6 +61,10 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'figaro'
 gem 'webpay'
+gem 'carrierwave'
+gem 'rmagick'
+gem 'nested_form'
+gem 'redactor-rails'
 group :development do
   gem 'bullet'
 end
