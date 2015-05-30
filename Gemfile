@@ -60,6 +60,7 @@ gem 'jquery-ui-rails'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'figaro'
+gem 'webpay'
 group :development do
   gem 'bullet'
 end
