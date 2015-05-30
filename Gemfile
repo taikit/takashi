@@ -57,6 +57,9 @@ gem 'whenever', require: false
 gem 'cancancan'
 gem 'devise'
 gem 'jquery-ui-rails'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'figaro'
 group :development do
   gem 'bullet'
 end
