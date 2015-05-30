@@ -12,13 +12,13 @@ class User < ActiveRecord::Base
     unless user
       user = User.create(name: auth.extra.raw_info.name,
                          provider: auth.provider,
+                         profile_image: auth.info.image,
                          uid: auth.uid,
                          email: auth.info.email,
                          token: auth.credentials.token,
                          facebook_url: auth.info.urls.Facebook,
                          password: Devise.friendly_token[0, 20])
     end
-
     return user
   end
 end

@@ -23,3 +23,6 @@
 
 /.idea
 /.idea/*
+
+/public/uploads/tmp/*
+/public/uploads/plan/image/*
