@@ -4,7 +4,9 @@ namespace :db do
     10.times do |n|
       User.create(
         email:    "email#{n}@example.com",
-        password: "#{n}" * 8
+        password: "#{n}" * 8,
+        name:    "User Name#{n}",
+        profile: "User Profile#{n} Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor, eos!"
         )
     end
     30.times do |n|
