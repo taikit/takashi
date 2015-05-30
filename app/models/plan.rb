@@ -8,6 +8,6 @@ class Plan < ActiveRecord::Base
   mount_uploader :image, ImageUploader
 
   validates_length_of :title, :in => (3..32)
-  validates_presence_of :image,:body
+  validates_presence_of :image, :body, :area_id, :category_id
   validates_numericality_of :amount
 end
