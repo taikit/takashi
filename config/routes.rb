@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :bookings
   devise_for :users, controllers: {omniauth_callbacks: 'omniauth_callbacks'}
 
   get 'static_pages/index'
