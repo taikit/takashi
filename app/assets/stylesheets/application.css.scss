@@ -9,3 +9,16 @@
 // @import "font-awesome-sprockets";
 // @import "font-awesome";
 @import "compass";
+
+.table { display: table; }
+.it    { display: inline-table; }
+.rg    { display: table-row-group; }
+.hg    { display: table-header-group; }
+.fg    { display: table-footer-group; }
+.tr    { display: table-row; }
+.cg    { display: table-column-group; }
+.tc    { display: table-cell }
+.tcap  { display: table-caption }
+
+/* 必要なら以下のようにタグ名に近いクラスを再定義 */
+.th, .td { display: table-cell; }
