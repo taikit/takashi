@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
-  resources :bookings
   devise_for :users, controllers: {omniauth_callbacks: 'omniauth_callbacks'}
-  resources :plans
-
+  resources :plans do
+    resources :bookings ,:only => [:new, :create]
+  end
   root 'static_pages#index'
-
 end
