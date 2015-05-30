@@ -8,6 +8,7 @@ class PlansController < ApplicationController
     if params[:area_name]
       @area = Area.find_by_name(params[:area_name])
       @plans = @area.plans
+      @categories = Category.all
     elsif params[:category_name]
       @category = Category.find_by_name(params[:category_name])
       @plans = @category.plans

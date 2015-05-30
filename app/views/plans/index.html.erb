@@ -1,31 +1,16 @@
 <div class="container" style="margin-top:80px;">
-  <h1 class="text-center">現在募集中のプラン</h1>
+  <h1 class="text-center">Find your best Triplan!</h1>
 
-  <%= link_to 'Create', new_plan_path ,class: "btn btn-primary" %>
-
-  <div class="row">
-    <% 10.times do |i| %>
-      <div class="col-md-4" style="padding: 20px;">
-        <a href="#">
-          <div class="table" style="background-color: #99cc66; border: 1px solid  #ccc ;border-radius: 5px;">
-            <div class="text-center table_tit"><h2>タイトル</h2></div>
-            <div class="text-center table_img"><%= image_tag 'test.jpg' , size: "300x300" %></div>
-            <div class="text-left table_text"><%= "本文です".truncate(50) + "..." %></div>
-          </div>
-        </a>
-      </div>
-    <% end %>
-
-    <% @plans.each do |plan| %>
-      <div class="col-md-4" style="padding: 10px;">
-        <%= link_to(plan, class: "display: block;") do %>
-          <div class="table" style="background-color: #eec;border: 1px solid #ccc;border-radius: 5px;padding: 10px;">
-            <h2><%= plan.title %></h2>
-            <div class="tr text-center"><%= image_tag 'test.jpg' , size: "300x300" %></div>
-            <div class="tr text-center"><%= plan.title.truncate(50) + "..." %></div>
-          </div>
-        <% end %>
-      </div>
-    <% end %>
-  </div>
+  <%= link_to 'Create', new_plan_path, class: "btn btn-primary" %>
+  <% if @area %>
+      <% @categories.each do |category| %>
+          <h2><%= category.name %></h2>
+          <% category.plans.first(3).each do |plan| %>
+              <%= render partial: 'plan', locals: {plan: plan} %>
+          <% end %>
+      <% end %>
+  <% else %>
+      <%= render @plans %>
+  <% end %>
+</div>
 </div>
