@@ -12,15 +12,15 @@
   <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox" style="height:350px;">
     <div class="item active">
-      <%= image_tag '1.jpg' , :alt=>'1' ,:width=>'100%' %>
+      <%= image_tag '1.jpg', :alt => '1', :width => '100%' %>
       <div class="carousel-caption"></div>
     </div>
     <div class="item">
-      <%= image_tag '2.jpg' , :alt=>'2' ,:width=>'100%'%>
-      <div class="carousel-caption">      </div>
+      <%= image_tag '2.jpg', :alt => '2', :width => '100%' %>
+      <div class="carousel-caption"></div>
     </div>
     <div class="item">
-      <%= image_tag '3.jpg' , :alt=>'3' ,:width=>'100%'%>
+      <%= image_tag '3.jpg', :alt => '3', :width => '100%' %>
       <div class="carousel-caption"></div>
     </div>
   </div>
@@ -38,17 +38,25 @@
 
 <!-- ===サイドバー だよー=================================== -->
 <div class="col-sm-3 col-md-2 sidebar">
+  <h3>Areas</h3>
   <ul class="nav nav-sidebar">
-    <li class="active"><a href="#">Tokyo <span class="sr-only">(current)</span></a></li>
-    <li><a href="#">Osaka</a></li>
-    <li><a href="#">Kumamoto</a></li>
-    <li><a href="#">Shizuoka</a></li>
+    <% @areas.each do |area| %>
+        <% if current_page? area_plans_path(area.name) %>
+            <li class="active"><%= link_to area.name << '<span class="sr-only">(current)</span>', area_plans_path(area) %></li>
+        <% else %>
+            <li><%= link_to area.name, area_plans_path(area.name) %></li>
+        <% end %>
+    <% end %>
   </ul>
+  <h3>Categories</h3>
   <ul class="nav nav-sidebar">
-    <li><a href="#">America</a></li>
-    <li><a href="#">Syliconbally</a></li>
-    <li><a href="#">aaa</a></li>
-    <li><a href="#">bbb</a></li>
+    <% @categories.each do |category| %>
+        <% if current_page? category_plans_path(category.name) %>
+            <li class="active"><%= link_to category.name << '<span class="sr-only">(current)</span>', category_plans_path(category) %></li>
+        <% else %>
+            <li><%= link_to category.name, area_plans_path(category.name) %></li>
+        <% end %>
+    <% end %>
   </ul>
 </div>
 
@@ -58,7 +66,9 @@
     <div class="row">
       <div class="col-sm-9 col-md-10 main">
         <h1 class="page-header">Catch Frease</h1>
+
         <h3>コレに困ってない？</h3>
+
         <p>できます！</p>
 
         <div class="row placeholders">

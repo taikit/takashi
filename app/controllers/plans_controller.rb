@@ -5,7 +5,15 @@ class PlansController < ApplicationController
   # GET /plans
   # GET /plans.json
   def index
-    @plans = Plan.all
+    if params[:area_name]
+      @area = Area.find_by_name(params[:area_name])
+      @plans = @area.plans
+    elsif params[:category_name]
+      @category = Category.find_by_name(params[:category_name])
+      @plans = @category.plans
+    else
+      @plans = Plan.all
+    end
   end
 
   # GET /plans/1
