@@ -3,7 +3,8 @@ class BookingsController < ApplicationController
 
   # GET /bookings/new
   def new
-    @booking = Booking.new
+    @plan    = Plan.find(params[:plan_id])
+    @booking = @plan.build_booking
   end
 
   # POST /bookings
