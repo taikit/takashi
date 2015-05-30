@@ -1,20 +1,93 @@
-<div class="band">
-  <img src="" alt="top_sp" class="sp">
-  <div class="name-band">
-    <img src="" alt="top_pc" class="pc">
-    <img src="" alt="top_sp" class="sp">
+<div class="row"></div>
+
+<!-- ===スライダーだよー=================================== -->
+<div id="carousel-example-generic full" class="carousel slide " data-ride="carousel" align="center">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox" style="height:350px;">
+    <div class="item active">
+      <%= image_tag '1.jpg' , :alt=>'1' ,:width=>'100%' %>
+      <div class="carousel-caption"></div>
+    </div>
+    <div class="item">
+      <%= image_tag '2.jpg' , :alt=>'2' ,:width=>'100%'%>
+      <div class="carousel-caption">      </div>
+    </div>
+    <div class="item">
+      <%= image_tag '3.jpg' , :alt=>'3' ,:width=>'100%'%>
+      <div class="carousel-caption"></div>
+    </div>
   </div>
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
 </div>
 
+<!-- ===サイドバー だよー=================================== -->
+<div class="col-sm-3 col-md-2 sidebar">
+  <ul class="nav nav-sidebar">
+    <li class="active"><a href="#">Tokyo <span class="sr-only">(current)</span></a></li>
+    <li><a href="#">Osaka</a></li>
+    <li><a href="#">Kumamoto</a></li>
+    <li><a href="#">Shizuoka</a></li>
+  </ul>
+  <ul class="nav nav-sidebar">
+    <li><a href="#">America</a></li>
+    <li><a href="#">Syliconbally</a></li>
+    <li><a href="#">aaa</a></li>
+    <li><a href="#">bbb</a></li>
+  </ul>
+</div>
+
+<!-- ===文章の中身だよー=================================== -->
 <div class="container">
-  <div class="row"></div>
-  <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
-  <div id="user-info">
-    <% if user_signed_in? %>
-        <%= current_user.name %>
-        [<%= link_to 'Sign out', destroy_user_session_path, method: :delete  %>]
-    <% else %>
-        <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
-    <% end %>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <h1 class="page-header">Catch Frease</h1>
+        <h3>コレに困ってない？</h3>
+        <p>できます！</p>
+
+        <div class="row placeholders">
+          <div class="col-xs-6 col-sm-4 placeholder">
+            <h4>Let's Go Abroad</h4>
+            <span class="text-muted">I am looking forward to meet you!</span>
+          </div>
+
+          <div class="col-xs-6 col-sm-4 placeholder">
+            <h4>Come on my home</h4>
+            <span class="text-muted">I am looking forward to meet you!</span>
+          </div>
+
+          <div class="col-xs-6 col-sm-4 placeholder">
+            <h4>Label</h4>
+            <span class="text-muted">Something else</span>
+          </div>
+
+          <!-- ごみごみごみごみ -->
+          <p>あ<br>あ<br>あ<br>あ<br>あ<br>あ<br>あ<br>あ<br>あ<br>あ<br>あ<br>あ<br>あ<br>あ<br>あ<br>あ<br>あ<br>あ<br>あ<br>あ<br>あ<br>あ<br>あ<br>あ<br>あ<br>あ<br>あ<br>あ<br>あ<br>あ<br>あ<br>あ<br>あ<br>あ<br>あ<br>あ<br>あ<br>あ<br>あ<br>あ<br>あ<br>あ<br>あ<br>あ<br>あ<br>あ<br>あ<br>あ<br>あ<br>あ<br>あ<br>あ<br>あ<br>あ<br>あ<br>あ<br>あ<br>あ<br>あ<br>あ<br>あ<br>あ<br>あ<br>あ<br>あ<br>あ<br>
+
+
+
+          </p>
+
+
+
+        </div>
+      </div>
+    </div>
   </div>
 </div>
