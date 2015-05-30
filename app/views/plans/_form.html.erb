@@ -1,26 +1,42 @@
-<%= form_for(@plan) do |f| %>
-  <% if @plan.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@plan.errors.count, "error") %> prohibited this plan from being saved:</h2>
+<%= nested_form_for(@plan) do |f| %>
+    <% if @plan.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@plan.errors.count, "error") %> prohibited this plan from being saved:</h2>
+          <ul>
+            <% @plan.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
 
-      <ul>
-      <% @plan.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+    <div class="field form-group"><%= f.label :image, "画像" %> : <%= f.text_field :image, class: "form-control" %></div>
+    <div class="field form-group"><%= f.label :title, "タイトル" %>
+      : <%= f.text_field :title, class: "form-control" %></div>
+    <script type="text/javascript">
+        $(function () {
+            $('#plan_body').redactor({
+                focus: true
+            });
+        });
+    </script>
+    <div class="field form-group"><%= f.label :body, "本文" %>
+      : <%= f.text_area :body, rows: 10, class: "form-control" %></div>
+    <div class="field form-group">
+      <%= f.label :amount, "金額" %> :
+      <div class="input-group">
+        <div class="input-group-addon">$</div>
+        <%= f.text_field :amount, class: "form-control" %></div>
+    </div>
+    <div class="field form-group"><%= f.label :area, "地域" %> : <%= f.text_field :area, class: "form-control" %></div>
+    <div class="field form-group">
+      <%= f.label :amount, "Day" %> :
+      <%= f.fields_for :days do |day_f| %>
+          <%= day_f.datetime_select :met_at %>
+          <%= day_f.link_to_remove "Remove this" %>
       <% end %>
-      </ul>
+      <%= f.link_to_add "Add Day", :days %>
     </div>
-  <% end %>
-
-  <div class="field form-group"><%= f.label :image , "画像"     %> : <%= f.text_field :image , class: "form-control" %></div>
-  <div class="field form-group"><%= f.label :title , "タイトル" %> : <%= f.text_field :title , class: "form-control" %></div>
-  <div class="field form-group"><%= f.label :body  , "本文"     %> : <%= f.text_area :body, rows: 10 , class: "form-control" %></div>
-  <div class="field form-group">
-    <%= f.label :amount, "金額"     %> :
-    <div class="input-group">
-      <div class="input-group-addon">$</div>
-      <%= f.text_field :amount, class: "form-control" %></div>
-    </div>
-  <div class="field form-group"><%= f.label :area  , "地域"     %> : <%= f.text_field :area  , class: "form-control" %></div>
-  <div class="text-center"><%= f.submit "プランを作成する", class: "btn btn-primary" %></div>
+    <div class="text-center"><%= f.submit "プランを作成する", class: "btn btn-primary" %></div>
 <% end %>
 <br>
