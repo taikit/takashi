@@ -34,6 +34,15 @@
     <!-- ヘッダー -->
     <%= render 'layouts/header' %>
 
+    <% if notice %>
+      <div class="alert alert-success" role="alert" style="margin-top: 50px">
+        <%= notice %>
+      </div>
+  <% elsif alert %>
+      <div class="alert alert-warning" role="alert" style="margin-top: 50px">
+        <%= alert %>
+      </div>
+  <% end %>
 <!-- 主要部分 -->
 <%= yield %>
 

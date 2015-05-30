@@ -1,11 +1,13 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
+  #before_action :check_booked, only: [:new, :create]
 
   # GET /bookings/new
   def new
     @day = Day.find(params[:day_id])
     @plan = @day.plan
     @booking = @plan.build_booking
+    check_booked(@day)
   end
 
   # POST /bookings
@@ -14,6 +16,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.day = Day.find(params[:day_id])
     @booking.plan = Plan.find(params[:plan_id])
+    check_booked(@day)
     @booking.user = current_user
     respond_to do |format|
       if @booking.save_with_pay(params['webpay-token'])
@@ -35,5 +38,11 @@ class BookingsController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def booking_params
     params.require(:booking).permit(:user_id, :plan_id, :charge_id, :card_fingerprint, :day_id)
+  end
+
+  def check_booked(day)
+    if day.booking
+      redirect_to day.plan, alert: 'This plan was already booked.'
+    end
   end
 end
