@@ -1,5 +1,5 @@
-class AreasController < ApplicationController
-  before_action :set_area, only: [:show, :edit, :update, :destroy]
+class AreasController < Admin::Base
+before_action :set_area, only: [:show, :edit, :update, :destroy]
 
   # GET /areas
   # GET /areas.json
