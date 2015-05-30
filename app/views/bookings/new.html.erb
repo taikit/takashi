@@ -3,7 +3,7 @@
 <%= simple_form_for [@plan, @booking] do |f| %>
     <%= f.error_notification %>
 
-
+    <%= f.hidden_field :days_id, :value => params[:days_id] %>
     <div class="field form-group">
       <%= f.button :submit %>
     </div>
