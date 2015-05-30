@@ -1,13 +1,13 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
-
-<% if ENV['URL'] %>
-  URL: <%= ENV['URL'] %>
-<% end %>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<div class="container">
+  <h1 class="text-center"><%= @plan.title %></h1>
+  <div class="row">
+    <div class="col-md-8">
+      <div class=""><%= image_tag("test.jpg", size: "400x400") %></div>
+      <div><%= @plan.body %></div>
+    </div>
+    <div class="col-md-4">
+      <span><%= @plan.user.name %></span><br>
+      <span><%= @plan.user.profile %></span>
+    </div>
+  </div>
+</div>
