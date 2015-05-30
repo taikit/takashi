@@ -34,9 +34,9 @@
       <%= f.label :amount, "Day" %> :
       <%= f.fields_for :days do |day_f| %>
           <%= day_f.datetime_select :met_at %>
-          <%= day_f.link_to_remove "Remove this" %>
+          <%= day_f.link_to_remove "Remove this" ,class: "btn btn-danger"  %>
       <% end %>
-      <%= f.link_to_add "Add Day", :days %>
+      <%= f.link_to_add "Add Day", :days ,class: "btn btn-primary" %>
     </div>
     <div class="text-center"><%= f.submit "プランを作成する", class: "btn btn-primary" %></div>
 <% end %>
