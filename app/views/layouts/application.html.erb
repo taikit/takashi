@@ -32,11 +32,13 @@
   <body>
     <!-- ヘッダー -->
     <%= render 'layouts/header' %>
+    <!-- 固定ヘッダーによる被りを防ぐ -->
+    <div style="height: 50px;"></div>
+    <!-- 主要部分 -->
 
-<!-- 主要部分 -->
-<%= yield %>
+    <%= yield %>
 
-<!-- フッター -->
-<%= render 'layouts/footer' %>
-</body>
+    <!-- フッター -->
+    <%= render 'layouts/footer' %>
+  </body>
 </html>
