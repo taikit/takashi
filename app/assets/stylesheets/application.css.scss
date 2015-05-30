@@ -3,4 +3,9 @@
  *= require jquery-ui
  *= require_tree .
  */
-@import 'compass';
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+// @import "font-awesome-sprockets";
+// @import "font-awesome";
+@import "compass";
