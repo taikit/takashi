@@ -1,25 +1,24 @@
-<h1>Listing plans</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @plans.each do |plan| %>
-      <tr>
-        <td><%= plan.name %></td>
-        <td><%= link_to 'Show', plan %></td>
-        <td><%= link_to 'Edit', edit_plan_path(plan) %></td>
-        <td><%= link_to 'Destroy', plan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<div class="container">
+  <h1 class="text-center">現在募集中のプラン</h1>
+  <%= link_to 'あなたのオリジナルプランを作成しましょう!', new_plan_path %>
+  <div class="row">
+    <% 10.times do |i| %>
+    <div class="col-md-4" style="padding: 10px;">
+    <a href="#" style="display: block;">
+        <div class="table" style="background-color: #eec;border: 1px solid #ccc;border-radius: 5px;padding: 10px;">
+          <h2>秋葉原アニメ＆ゲームショップ1日ツアー</h2>
+          <div class="tr text-center"><%= image_tag("test.jpg", size: "200x200") %></div>
+          <div class="tr text-center"><%= "本場のオタクが案内する秋葉原電気街のオタクツアー! 20年来のマニアがおすすめするアニメ・漫画・ゲームグッズやトレカショップを回ります。".truncate(50) + "..." %></div>
+        </div>
+      </a>
+    </div>
     <% end %>
-  </tbody>
-</table>
 
-<br>
+    <% @plans.each do |plan| %>
+    <%= link_to '詳細を見る', plan %>
+    <%= link_to '編集する', edit_plan_path(plan) %>
+    <%= link_to '削除する', plan, method: :delete, data: { confirm: 'このプランを削除しますがよろしいですか?' } %>
+    <% end %>
+  </div>
+</div>
 
-<%= link_to 'New plan', new_user_path %>
