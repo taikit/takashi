@@ -1,0 +1,9 @@
+<div class="col-md-4" style="padding: 10px;">
+  <%= link_to(plan, class: "display: block;") do %>
+      <div class="table" style="background-color: #eec;border: 1px solid #ccc;border-radius: 5px;padding: 10px;">
+        <h2><%= plan.title %></h2>
+        <div class="tr text-center"><%= image_tag 'test.jpg' , size: "300x300" %></div>
+        <div class="tr text-center"><%= plan.title.truncate(50) + "..." %></div>
+      </div>
+  <% end %>
+</div>
