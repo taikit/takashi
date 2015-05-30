@@ -1,34 +1,31 @@
-<header class="clear-fix" style="margin:50px;">
-  <nav class="navbar navbar-fixed-top" style="background-color:white;">
-    <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-          <span class="sr-only">Toggle navigation</span>
-          <%= image_tag 'menu.png' , :alt=>'menu', :size=>'5%' %>
-        </button>
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
         <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="#">Plans</a>
-      </div>
-
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav navbar-right" role="menu">
-              <li><a href="index.html">TOP</a></li>
-              <li><a href="mypage.html">SIGN UP</a></li>
-              <li><a href="">
-                <% if user_signed_in? %>
-                    <%= current_user.name %>
-                    [<%= link_to 'Sign out', destroy_user_session_path, method: :delete  %>]
-                <% else %>
-                    <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
-                <% end %>
-              </a></li>
-        </ul>
-      </div>
+        <%= image_tag 'menu.png' , :alt=>'menu', :size=>'5%' %>
+      </button>
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      <!-- </button> -->
+      <a class="navbar-brand" href="#">Plans</a>
     </div>
-  </nav>
-</header>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right" role="menu">
+        <li><a href="/">TOP</a></li>
+        <li><a href="mypage">SIGN UP</a></li>
+        <li><% if user_signed_in? %>
+        <a href="#"><%= current_user.name %></a></li>
+        <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete  %>
+        </li>
+          <% else %>
+          <li><%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>
