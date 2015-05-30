@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="band">
   <img src="" alt="top_sp" class="sp">
   <div class="name-band">
@@ -18,3 +19,15 @@
     <% end %>
   </div>
 </div>
+=======
+<h1>StaticPages#index</h1>
+<p>Find me in app/views/static_pages/index.html.erb</p>
+<div id="user-info">
+  <% if user_signed_in? %>
+      <%= current_user.name %>
+      [<%= link_to 'Sign out', destroy_user_session_path, method: :delete  %>]
+  <% else %>
+      <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
+  <% end %>
+</div>
+>>>>>>> 32470595e54571f4a49e3fb26454f2759848c790
