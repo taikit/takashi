@@ -1,4 +1,4 @@
-<%= nested_form_for(@plan) do |f| %>
+<%= nested_form_for @plan, :html => {:multipart => true} do |f| %>
     <% if @plan.errors.any? %>
         <div id="error_explanation">
           <h2><%= pluralize(@plan.errors.count, "error") %> prohibited this plan from being saved:</h2>
@@ -10,7 +10,7 @@
         </div>
     <% end %>
 
-    <div class="field form-group"><%= f.label :image, "画像" %> : <%= f.text_field :image, class: "form-control" %></div>
+    <div class="field form-group"><%= f.label :image, "画像" %> : <%= f.file_field :image, class: "form-control" %></div>
     <div class="field form-group"><%= f.label :title, "タイトル" %>
       : <%= f.text_field :title, class: "form-control" %></div>
     <script type="text/javascript">
