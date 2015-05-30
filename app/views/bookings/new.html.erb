@@ -1,10 +1,8 @@
 <h1>New Booking</h1>
 
-<%= simple_form_for [@plan, @booking] do |f| %>
+<%= simple_form_for [@plan, @day, @booking] do |f| %>
     <%= f.error_notification %>
-
-    <%= f.hidden_field :days_id, :value => params[:days_id] %>
-    <div class="field form-group">
-      <%= f.button :submit %>
-    </div>
+    <div>
+      <%= javascript_include_tag "https://checkout.webpay.jp/v2/", class: 'webpay-button', :'data-text' => 'Input card info', :'data-submit-text' => 'Pay $' << @plan.amount.to_s, :'data-key' => "#{ENV['WEBPAY_PUBLIC']}", :'data-lang' => 'us' %></div>
+    <%= f.hidden_field :day_id, :value => @day.id %>
 <% end %>

@@ -18,7 +18,7 @@
       <div>
         <ul>
           <% @plan.days.each do |day| %>
-              <li><%= link_to day.met_at.strftime('%Y/%m/%d %H:%M'), new_plan_booking_path(@plan, date_id: day.id) %></li>
+              <li><%= link_to day.met_at.strftime('%Y/%m/%d %H:%M'), new_plan_day_booking_path(@plan,day.id) %></li>
           <% end %>
         </ul>
       </div>
