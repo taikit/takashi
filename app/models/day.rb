@@ -1,5 +1,6 @@
 class Day < ActiveRecord::Base
   belongs_to :plan
+  has_one :booking
   validate :past_check
 
   def past_check
