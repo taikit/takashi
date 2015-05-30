@@ -1,7 +1,7 @@
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-default navbar-fixed-top" style="color: #223a70;  border: 1px solid  #ccc ;">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
+    <div class="navbar-header" >
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
         <span class="sr-only">Toggle navigation</span>
         <%= image_tag 'menu.png' , :alt=>'menu', :size=>'5%' %>
@@ -11,15 +11,15 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       <!-- </button> -->
-      <a class="navbar-brand" href="#">Plans</a>
+      <a class="navbar-brand" href="#">Triplans</a>
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right" role="menu">
         <li><a href="/">TOP</a></li>
-        <li><a href="mypage">SIGN UP</a></li>
+        <li><a href="/login">SIGN UP</a></li>
         <li><% if user_signed_in? %>
-        <a href="#"><%= current_user.name %></a></li>
+        <a href="/mypage"><%= current_user.name %></a></li>
         <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete  %>
         </li>
           <% else %>
