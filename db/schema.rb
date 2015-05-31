@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150530152942) do
+ActiveRecord::Schema.define(version: 20150531030203) do
+
+  create_table "Plans", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "image"
+    t.string   "title"
+    t.text     "body"
+    t.integer  "amount"
+    t.integer  "area_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "category_id"
+  end
 
   create_table "areas", force: :cascade do |t|
     t.string   "name"
@@ -29,6 +41,8 @@ ActiveRecord::Schema.define(version: 20150530152942) do
     t.integer  "day_id"
   end
 
+  add_index "bookings", ["day_id"], name: "index_bookings_on_day_id", unique: true
+
   create_table "categories", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -40,18 +54,6 @@ ActiveRecord::Schema.define(version: 20150530152942) do
     t.datetime "met_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "plans", force: :cascade do |t|
-    t.integer  "user_id"
-    t.string   "image"
-    t.string   "title"
-    t.text     "body"
-    t.float    "amount"
-    t.integer  "area_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.integer  "category_id"
   end
 
   create_table "users", force: :cascade do |t|

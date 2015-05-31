@@ -16,16 +16,11 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.day = Day.find(params[:day_id])
     @booking.plan = Plan.find(params[:plan_id])
-    check_booked(@day)
     @booking.user = current_user
-    respond_to do |format|
-      if @booking.save_with_pay(params['webpay-token'])
-        format.html { redirect_to root_path, notice: 'Booking was successfully created.' }
-        format.json { render :show, status: :created, location: @booking }
-      else
-        format.html { render :new }
-        format.json { render json: @booking.errors, status: :unprocessable_entity }
-      end
+    if @booking.save_with_pay(params['webpay-token'])
+      redirect_to root_path, notice: 'Booking was successfully created.'
+    else
+      render :new
     end
   end
 
