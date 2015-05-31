@@ -1,5 +1,25 @@
-<div class="container" style="margin-top:80px;">
-  <h1 class="text-center">Find your best Triplan!</h1>
-
+<div>
+  <h2>Your conducted plans</h2>
+  <ul>
+    <% @user.plans.each do |plan| %>
+        <li><%= link_to plan.title, plan %><%= link_to 'edit', edit_plan_path(plan) %></li>
+    <% end %>
+  </ul>
 </div>
+
+<div>
+  <h2>Your joined plans</h2>
+  <ul>
+    <% @user.bookings.each do |booking| %>
+        <li><%= link_to booking.plan.title, root_path %><%= link_to 'edit', edit_plan_path(booking.plan) %></li>
+    <% end %>
+  </ul>
+</div>
+
+<div>
+  <h2>Your Profile</h2>
+  <%= link_to 'Edit' , edit_user_path(@user) %>
+  <%= image_tag(@user.profile_image + "?type=large") %>
+  <%= @user.name %>
+  <%= @user.profile %>
 </div>
