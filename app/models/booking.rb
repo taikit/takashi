@@ -3,6 +3,8 @@ class Booking < ActiveRecord::Base
   belongs_to :plan
   belongs_to :day
 
+  validates_uniqueness_of :day_id
+
   def save_with_pay(token)
     if valid?
       begin
