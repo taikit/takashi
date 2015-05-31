@@ -9,7 +9,9 @@
         <span class="icon-bar"></span>
       </button>
       <!-- </button> -->
-      <%= link_to("Triplan", root_path, class: "navbar-brand") %>
+      <%= link_to(root_path, class: "navbar-brand") do %>
+        <%= image_tag("logo.png", alt: "triplan", size: "150x37") %>
+      <% end %>
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
