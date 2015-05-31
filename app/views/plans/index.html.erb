@@ -5,10 +5,17 @@
   </div>
   <div class="row">
     <% if @area %>
+
+      <%# 各カテゴリーのトップ4を表示 %>
       <% @categories.each do |category| %>
-        <h2><%= category.name %></h2>
-        <% category.plans.first(12).each do |plan| %>
-          <%= render partial: 'plan', locals: {plan: plan} %>
+        <% topplans = category.plans.first(4) %>
+
+        <%# カテゴリーが存在すする場合のみタイトルとコンテンツを表示 %>
+        <% if (!topplans.nil? && !topplans.empty?) %>
+          <h2><%= category.name %></h2>
+          <% topplans.each do |plan| %>
+            <%= render partial: 'plan', locals: {plan: plan} %>
+          <% end %>
         <% end %>
       <% end %>
     <% else %>
