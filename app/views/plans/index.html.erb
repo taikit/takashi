@@ -1,9 +1,8 @@
-<div class="container-fluid">
+<div class="container">
   <div class="row">
     <h1 class="text-center">Available Plans</h1>
     <div class="text-center"><%= link_to('Make Your Original Plan Now!', new_plan_path, class: "btn btn-primary", style: "color: #fff;") %></div>
   </div>
-  <div class="row">
     <% if @area %>
 
       <%# 各カテゴリーのトップ4を表示 %>
@@ -12,16 +11,19 @@
 
         <%# カテゴリーが存在すする場合のみタイトルとコンテンツを表示 %>
         <% if (!topplans.nil? && !topplans.empty?) %>
-          <h2><%= category.name %></h2>
-          <% topplans.each do |plan| %>
-            <%= render partial: 'plan', locals: {plan: plan} %>
-          <% end %>
+          <div class="row">
+            <h2><%= category.name %></h2>
+            <% topplans.each do |plan| %>
+              <%= render partial: 'plan', locals: {plan: plan} %>
+            <% end %>
+          </div>
         <% end %>
       <% end %>
     <% else %>
-      <% @plans.each do |plan| %>
-        <%= render partial: 'plan', locals: {plan: plan} %>
-      <% end %>
+      <div class="row">
+        <% @plans.each do |plan| %>
+          <%= render partial: 'plan', locals: {plan: plan} %>
+        <% end %>
+      </div>
     <% end %>
-  </div>
 </div>
