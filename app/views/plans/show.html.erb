@@ -1,35 +1,40 @@
 <div class="container">
-  <h1 class="text-center"><%= @plan.title %></h1>
 
   <div class="row">
     <div class="col-md-9">
+      <h1 class="text-center"><%= @plan.title %></h1>
       <div class="text-center">
         <%= image_tag(@plan.image, :width => "600") %>
       </div>
       <div class="plan_body"><%= sanitize @plan.body %></div>
     </div>
-    <div class="col-md-3">
-      <div class="h4 bs_boader text-center">
-        <p class="h4">Conductor</p>
-        <%= image_tag(@plan.user.profile_image + "?type=large") %><br>
-        <p><%= @plan.user.name %></p>
-      </div>
-
-      <div class="bs_boader text-center">
-        <p class="h4">Booking</p>
-        <ul class="nav nav-pills nav-stacked" style="padding: 10px;">
-          <% @plan.days.each do |day| %>
-            <% if day.booking %>
-              <li role="presentation" class="active">
-                <a>×<%= day.met_at.strftime('%Y/%m/%d %H:%M') %></a>
-              </li>
-            <% else %>
-              <li role="presentation">
-                <%= link_to '◯' << day.met_at.strftime('%Y/%m/%d %H:%M'), new_plan_day_booking_path(@plan, day.id) %>
-              </li>
-            <% end %>
-          <% end %>
-        </ul>
+    <div class="col-md-3" style="  margin-top: 30px;">
+      <div class="row">
+        <div class="col-xs-6 col-md-12" style="margin: 10px 0;">
+          <div class="bs_boader text-center">
+            <p class="h4">Conductor</p>
+            <%= image_tag(@plan.user.profile_image + "?type=large") %><br>
+            <p class="h4"><%= @plan.user.name %></p>
+          </div>
+        </div>
+        <div class="col-xs-6 col-md-12" style="margin: 10px 0;">
+          <div class="bs_boader text-center">
+            <p class="h4">Booking</p>
+            <ul class="nav nav-pills nav-stacked" style="padding: 10px;">
+              <% @plan.days.each do |day| %>
+                <% if day.booking %>
+                  <li role="presentation" class="active">
+                    <a>×<%= day.met_at.strftime('%Y/%m/%d %H:%M') %></a>
+                  </li>
+                <% else %>
+                  <li role="presentation">
+                    <%= link_to '◯' << day.met_at.strftime('%Y/%m/%d %H:%M'), new_plan_day_booking_path(@plan, day.id) %>
+                  </li>
+                <% end %>
+              <% end %>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   </div>
