@@ -9,13 +9,13 @@
       <div class="plan_body"><%= sanitize @plan.body %></div>
     </div>
     <div class="col-md-4">
-      <div class="h4" style="border-radius: 5px; padding: 0 10px 10px 10px;">
+      <div class="h4" class="bs_boader">
         <p class="h4">Conductor</p>
         <%= image_tag(@plan.user.profile_image + "?type=large") %><br>
         <p><%= @plan.user.name %></p>
       </div>
 
-      <div>
+      <div class="bs_boader">
         <p class="h4">Booking</p>
         <ul class="nav nav-pills nav-stacked">
           <% @plan.days.each do |day| %>
