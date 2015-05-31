@@ -6,8 +6,9 @@
       <div class="text-center">
         <%= image_tag(@plan.image, :width => "600") %>
       </div>
-      <div class="plan_body"><%= sanitize @plan.body %></div>
+      <div class="plan_body"></div>
     </div>
+
     <div class="col-md-3" style="  margin-top: 30px;">
       <div class="row">
         <div class="col-xs-6 col-md-12" style="margin: 10px 0;">
@@ -17,11 +18,14 @@
             <p class="h4"><%= @plan.user.name %></p>
           </div>
         </div>
+
         <div class="col-xs-6 col-md-12">
+
           <div class="bs_boader text-center" style="margin: 10px 0;">
             <p class="h4">Price</p>
             <p><%= @plan.amount %> yen</p>
           </div>
+
           <div class="bs_boader text-center" style="margin: 10px 0;">
             <p class="h4">Booking</p>
             <ul class="nav nav-pills nav-stacked" style="padding: 10px;">
@@ -38,8 +42,11 @@
               <% end %>
             </ul>
           </div>
+
         </div>
+
       </div>
     </div>
+
   </div>
 </div>
