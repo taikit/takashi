@@ -4,6 +4,18 @@
     <div class="text-center"><%= link_to('あなたのオリジナルプランを作成しましょう!', new_plan_path, class: "btn btn-primary", style: "color: #fff;") %></div>
   </div>
   <div class="row">
+    <% 10.times do |i| %>
+      <div class="col-md-4" style="padding: 20px;">
+        <a href="#">
+          <div class="table" style="background-color: #99cc66; border: 1px solid  #ccc ;border-radius: 5px;">
+            <div class="text-center table_tit"><h2>タイトル</h2></div>
+            <div class="text-center table_img"><%= image_tag 'test.jpg' , size: "300x300" %></div>
+            <div class="text-left table_text"><%= "本文です".truncate(50) + "..." %></div>
+          </div>
+        </a>
+      </div>
+    <% end %>
+
     <% @plans.each do |plan| %>
       <div class="col-md-3 col-sm-6" style="padding: 10px;">
         <%= link_to(plan, class: "display: block;") do %>
@@ -19,4 +31,3 @@
     <% end %>
   </div>
 </div>
-

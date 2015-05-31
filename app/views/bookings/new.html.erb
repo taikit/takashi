@@ -1,16 +1,23 @@
 <h1>New Booking</h1>
 
-<%= simple_form_for [@plan, @booking] do |f| %>
+<div>
+  <p>Plan name</p>
+  <%= @plan.title %>
+</div>
+
+<div>
+  <p>Conductor</p>
+  <%= @plan.user.name %>
+</div>
+
+<p>Date</p>
+<%= @day.met_at.strftime('%Y/%m/%d %H:%M') %>
+
+
+
+<%= simple_form_for [@plan, @day, @booking] do |f| %>
     <%= f.error_notification %>
-
-    <div class="form-inputs">
-      <%= f.input :user_id %>
-      <%= f.input :plan_id %>
-      <%= f.input :charge_id %>
-      <%= f.input :card_fingerprint %>
-    </div>
-
-    <div class="form-actions">
-      <%= f.button :submit %>
-    </div>
+    <div>
+      <%= javascript_include_tag "https://checkout.webpay.jp/v2/", class: 'webpay-button', :'data-text' => 'Input card info', :'data-submit-text' => 'Pay $' << @plan.amount.to_s, :'data-key' => "#{ENV['WEBPAY_PUBLIC']}", :'data-lang' => 'us' %></div>
+    <%= f.hidden_field :day_id, :value => @day.id %>
 <% end %>

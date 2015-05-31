@@ -63,7 +63,8 @@ gem 'figaro'
 gem 'webpay'
 gem 'carrierwave'
 unless RUBY_PLATFORM =~ /mingw/
-  gem 'rmagick'
+  # りかさんのmacでは動かなかったので一時的に外しています
+  #gem 'rmagick'
 end
 gem 'nested_form'
 gem 'redactor-rails'
