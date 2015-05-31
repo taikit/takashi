@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users, only: [:edit, :update, :index, :show]
+  resources :users, only: [:edit, :update, :index]
 
   get '/plans/area/:area_name', to: 'plans#index', as: 'area_plans'
   get '/plans/category/:category_name', to: 'plans#index', as: 'category_plans'
