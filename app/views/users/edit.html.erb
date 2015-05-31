@@ -1,59 +1,21 @@
-<div class="container" style="margin-top:80px;">
-  <h1 class="text-center">Edit Triuser</h1>
-
+<div class="container">
+  <h1 class="text-center">Editing your profile</h1>
   <div class="row">
-
-    <div class="col-md-8 col-md-offset-2">
-      <%= nested_form_for @user, :html => {:multipart => true} do |f| %>
-          <% if @user.errors.any? %>
-              <div id="error_exuseration">
-                <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
-                <ul>
-                  <% @user.errors.full_messages.each do |message| %>
-                      <li><%= message %></li>
-                  <% end %>
-                </ul>
-              </div>
-          <% end %>
-
-          <div class="field form-group"><%= f.label :image, "画像" %>
-            : <%= f.file_field :image, class: "form-control" %></div>
-          <div class="field form-group"><%= f.label :title, "タイトル" %>
-            : <%= f.text_field :title, class: "form-control" %></div>
-          <script type="text/javascript">
-              $(function () {
-                  $('#user_body').redactor({
-                      focus: true
-                  });
-              });
-          </script>
-          <div class="field form-group"><%= f.label :body, "本文" %>
-            : <%= f.text_area :body, rows: 10, class: "form-control" %></div>
-          <div class="field form-group">
-            <%= f.label :amount, "金額" %> :
-            <div class="input-group">
-              <div class="input-group-addon">$</div>
-              <%= f.text_field :amount, class: "form-control" %></div>
-          </div>
-          <div class="field form-group"><%= f.label :area, "Area" %>
-            : <%= f.collection_select :area_id, Area.all, :id, :name %></div>
-          <div class="field form-group"><%= f.label :area, "Category" %>
-            : <%= f.collection_select :category_id, Category.all, :id, :name %></div>
-          <div class="field form-group">
-            <%= f.label :amount, "Day" %> :
-            <%= f.fields_for :days do |day_f| %>
-                <%= day_f.datetime_select :met_at %>
-                <%= day_f.link_to_remove "Remove this" %>
-            <% end %>
-            <%= f.link_to_add "Add Day", :days %>
-          </div>
-          <div class="text-center"><%= f.submit "プランを作成する", class: "btn btn-primary" %></div>
-      <% end %>
-      <br>
-
+    <div class="col-md-6 col-md-offset-3">
+      <table class="table">
+        <tbody>
+        <tr><td class="h4">Your name :</td><td class="h4"><%= @user.name %></td></tr>
+        <tr><td class="h4">Your profile image :</td><td class="h4"><%= image_tag(@user.profile_image + "?type=large") %></td></tr>
+        </tbody>
+      </table>
+      <div class="text-center" style="margin: 10px 0;">
+        <%= simple_form_for @user do |f| %>
+            <%= f.error_notification %>
+            <%= f.label :profile %>
+            <%= f.text_field :profile %>
+            <%= f.submit %>
+        <% end %>
+      </div>
     </div>
   </div>
-  <p class="text-center">
-    <%= link_to '一覧に戻る', users_path, class: "btn btn-default" %>
-  </p>
 </div>

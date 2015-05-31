@@ -20,7 +20,7 @@
         <div class="col-xs-6 col-md-12">
           <div class="bs_boader text-center" style="margin: 10px 0;">
             <p class="h4">Price</p>
-            <p><%= @plan.amount %> 円</p>
+            <p><%= @plan.amount %> yen</p>
           </div>
           <div class="bs_boader text-center" style="margin: 10px 0;">
             <p class="h4">Booking</p>
@@ -32,7 +32,7 @@
                   </li>
                 <% else %>
                   <li role="presentation">
-                    <%= link_to '◯' << day.met_at.strftime('%Y/%m/%d %H:%M'), new_plan_day_booking_path(@plan, day.id) %>
+                    <%= link_to '◯' << day.met_at.strftime('%Y/%m/%d %H:%M'), new_plan_day_booking_path(@plan, day.id), data: { no_turbolink: true } %>
                   </li>
                 <% end %>
               <% end %>

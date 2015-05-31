@@ -15,7 +15,7 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     @booking.day = Day.find(params[:day_id])
-    @booking.plan = Plan.find(params[:plan_id])
+    @booking.plan = @booking.day.plan
     @booking.user = current_user
     if @booking.save_with_pay(params['webpay-token'])
       redirect_to root_path, notice: 'Booking was successfully created.'
