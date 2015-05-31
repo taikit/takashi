@@ -6,7 +6,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 // @import "font-awesome-sprockets";
-// @import "font-awesome";
+@import "font-awesome";
 @import "compass";
 
 .table {
@@ -61,6 +61,9 @@
   margin: 20px;
 }
 
+.fa-6 {
+  font-size: 20em;
+}
 
 /* ===slider==================================================== */
 .sp-button {
