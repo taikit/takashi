@@ -33,19 +33,23 @@
   <body>
     <!-- ヘッダー -->
     <%= render 'layouts/header' %>
+    <!-- 固定ヘッダーによる被りを防ぐ -->
+    <div style="height: 50px;"></div>
+    <!-- 主要部分 -->
     <% if notice %>
       <div class="alert alert-success" role="alert" style="margin-top: 50px">
         <%= notice %>
       </div>
-  <% elsif alert %>
+    <% elsif alert %>
       <div class="alert alert-warning" role="alert" style="margin-top: 50px">
         <%= alert %>
       </div>
-  <% end %>
-<!-- 主要部分 -->
-<%= yield %>
+    <% end %>
 
-<!-- フッター -->
-<%= render 'layouts/footer' %>
-</body>
+    <!-- 主要部分 -->
+    <%= yield %>
+
+    <!-- フッター -->
+    <%= render 'layouts/footer' %>
+  </body>
 </html>

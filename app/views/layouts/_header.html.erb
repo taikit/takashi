@@ -11,20 +11,16 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       <!-- </button> -->
-      <a class="navbar-brand" href="/">
-        <%= image_tag 'logo.png' , :alt=>'logo', :width=>'150px' %>
-      </a>
+      <%= link_to("Triplan", root_path, class: "navbar-brand") %>
     </div>
 
-    <div class="collapse navbar-collapse headder_ul" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-right" role="menu" style="font-size:150%">
-        <li><a href="/">TOP</a></li>
-        <li><a href="/login">SIGN UP</a></li>
-        <li><% if user_signed_in? %>
-        <a href="/mypage"><%= current_user.name %></a></li>
-        <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete  %>
-        </li>
-          <% else %>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right" role="menu">
+        <li><%= link_to("TOP", root_path) %></li>
+        <% if user_signed_in? %>
+          <li><%= link_to(current_user.name, root_path) %></li>
+          <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete  %></li>
+        <% else %>
           <li><%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %></li>
         <% end %>
       </ul>

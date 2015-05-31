@@ -1,5 +1,5 @@
 class PlansController < ApplicationController
-  before_action :set_plan, only: [:show, :edit, :update, :destroy]
+  before_action :set_plan, only: [:show,:destroy]
   before_action :authenticate_user!, :except => [:index, :show]
 
   # GET /plans
@@ -29,6 +29,7 @@ class PlansController < ApplicationController
 
   # GET /plans/1/edit
   def edit
+    @plan = current_user.plans.find(params[:id])
   end
 
   # POST /plans
@@ -50,6 +51,7 @@ class PlansController < ApplicationController
   # PATCH/PUT /plans/1
   # PATCH/PUT /plans/1.json
   def update
+    @plan = current_user.plans.find(params[:id])
     respond_to do |format|
       if @plan.update(plan_params)
         format.html { redirect_to @plan, notice: 'Plan was successfully updated.' }

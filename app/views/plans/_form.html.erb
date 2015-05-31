@@ -25,8 +25,9 @@
     <div class="field form-group">
       <%= f.label :amount, "金額" %> :
       <div class="input-group">
-        <div class="input-group-addon">$</div>
-        <%= f.text_field :amount, class: "form-control" %></div>
+        <%= f.text_field :amount, class: "form-control" %>
+        <div class="input-group-addon">円</div>
+      </div>
     </div>
     <div class="field form-group"><%= f.label :area, "Area" %> : <%= f.collection_select :area_id, Area.all, :id, :name %></div>
     <div class="field form-group"><%= f.label :area, "Category" %> : <%= f.collection_select :category_id, Category.all, :id, :name %></div>
