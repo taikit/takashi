@@ -7,7 +7,7 @@
     <% if @area %>
       <% @categories.each do |category| %>
         <h2><%= category.name %></h2>
-        <% category.plans.first(5).each do |plan| %>
+        <% category.plans.first(12).each do |plan| %>
           <%= render partial: 'plan', locals: {plan: plan} %>
         <% end %>
       <% end %>
