@@ -63,6 +63,7 @@ gem 'figaro'
 gem 'webpay'
 gem 'carrierwave'
 gem 'gmaps4rails'
+gem 'geocoder'
 unless RUBY_PLATFORM =~ /mingw/
   # りかさんのmacでは動かなかったので一時的に外しています
   #gem 'rmagick'
