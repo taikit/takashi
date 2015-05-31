@@ -32,7 +32,7 @@
                   </li>
                 <% else %>
                   <li role="presentation">
-                    <%= link_to '◯' << day.met_at.strftime('%Y/%m/%d %H:%M'), new_plan_day_booking_path(@plan, day.id) %>
+                    <%= link_to '◯' << day.met_at.strftime('%Y/%m/%d %H:%M'), new_plan_day_booking_path(@plan, day.id), data: { no_turbolink: true } %>
                   </li>
                 <% end %>
               <% end %>
