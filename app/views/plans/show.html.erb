@@ -3,36 +3,31 @@
 
   <div class="row">
     <div class="col-md-8">
-      <button class="btn btn-success" type="submit">
-        <div class="text-center"><%= image_tag(@plan.image) %></div>
-      </button>
-
-      <div><%= @plan.body %></div>
-
+      <div class="text-center">
+        <%= image_tag(@plan.image, :width => "600") %>
+      </div>
+      <div class="plan_body"><%= sanitize @plan.body %></div>
     </div>
-
     <div class="col-md-4">
-      <div class="h4 text-center" style="background-color: #ccc; border-radius: 5px; padding: 10px; height: 200px; ">
+      <div class="h4" style="border-radius: 5px; padding: 0 10px 10px 10px;">
+        <p class="h4">Conductor</p>
         <%= image_tag(@plan.user.profile_image + "?type=large") %><br>
-
-        <p class="h4">このプランの作成者<br><%= @plan.user.name %></p>
-
-        <p><%= @plan.user.profile %></p>
+        <p><%= @plan.user.name %></p>
       </div>
 
       <div>
-        <ul>
+        <p class="h4">Booking</p>
+        <ul class="nav nav-pills nav-stacked">
           <% @plan.days.each do |day| %>
-              <li>
                 <% if day.booking %>
-                    ×
-                    <%= day.met_at.strftime('%Y/%m/%d %H:%M') %>
+                  <li class="active">
+                    <a>×<%= day.met_at.strftime('%Y/%m/%d %H:%M') %></a>
+                  </li>
                 <% else %>
-                    ◯
-                    <%= link_to day.met_at.strftime('%Y/%m/%d %H:%M'), new_plan_day_booking_path(@plan, day.id) %>
-
+                  <li>
+                    <%= link_to '◯' << day.met_at.strftime('%Y/%m/%d %H:%M'), new_plan_day_booking_path(@plan, day.id) %>
+                  </li>
                 <% end %>
-              </li>
           <% end %>
         </ul>
       </div>
