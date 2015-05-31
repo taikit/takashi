@@ -3,26 +3,52 @@
  *= require jquery-ui
  *= require_tree .
  */
-
 @import "bootstrap-sprockets";
 @import "bootstrap";
 // @import "font-awesome-sprockets";
 // @import "font-awesome";
 @import "compass";
 
-.table { display: table; }
-.it    { display: inline-table; }
-.rg    { display: table-row-group; }
-.hg    { display: table-header-group; }
-.fg    { display: table-footer-group; }
-.tr    { display: table-row; }
-.cg    { display: table-column-group; }
-.tc    { display: table-cell }
-.tcap  { display: table-caption }
+.table {
+  display: table;
+}
+
+.it {
+  display: inline-table;
+}
+
+.rg {
+  display: table-row-group;
+}
+
+.hg {
+  display: table-header-group;
+}
+
+.fg {
+  display: table-footer-group;
+}
+
+.tr {
+  display: table-row;
+}
+
+.cg {
+  display: table-column-group;
+}
+
+.tc {
+  display: table-cell
+}
+
+.tcap {
+  display: table-caption
+}
 
 /* 必要なら以下のようにタグ名に近いクラスを再定義 */
-.th, .td { display: table-cell; }
-
+.th, .td {
+  display: table-cell;
+}
 
 .btn-primary {
   color: #fff;
@@ -32,30 +58,27 @@
 
 /* ===slider==================================================== */
 .sp-button {
-    border:2px solid #ccc;
+  border: 2px solid #ccc;
 }
+
 .sp-selected-button {
   background-color: #ccc;
 }
 
 .sp-next-arrow:before {
-    font-family: FontAwesome !important;
-    content: '\f105' !important;
+  font-family: FontAwesome !important;
+  content: '\f105' !important;
 }
 
 .sp-previous-arrow:before {
-    font-family: FontAwesome !important;
+  font-family: FontAwesome !important;
   content: '\f104' !important;
 }
-
 
 /* ===fotter==================================================== */
 // fotter{
 //   display: block;
 // }
-
-
-
 
 /* ===index==================================================== */
 .sidebar {
@@ -72,42 +95,29 @@
   border-right: 1px solid #eee;
 }
 
-.ib{
+.ib {
   display: inline-block;
 }
 
-
-
 /* ===login==================================================== */
-
-
-
 
 /* ===logout==================================================== */
 
-
-
-
 /* ===plans index==================================================== */
-.table_tit , .table_img, .table_text{
-  padding:5px;
+.table_tit, .table_img, .table_text {
+  padding: 5px;
 }
 
-.table_text{
-  margin:0 15px 30px 15px;
+.table_text {
+  margin: 0 15px 30px 15px;
 }
-
 
 /* ===plane edit==================================================== */
 
-
-
 /* ===plans new==================================================== */
 
-
-
 /* ===plans show==================================================== */
-.show_co{
+.show_co {
   margin-top: 100px;
 }
 
@@ -115,11 +125,12 @@
   margin: 20px;
 }
 
+.bs_boader {
+  border-radius: 4px 4px 0 0;
+  border: 1px solid #ddd;
 
-
+}
 
 /* ===pay==================================================== */
-
-
 
 /* ======================================================= */
