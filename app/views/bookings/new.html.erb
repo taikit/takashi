@@ -1,21 +1,24 @@
-<h1>New Booking</h1>
+<div class="container">
+  <h1 class="text-center">New Booking and Payment Confirmation</h1>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+    <table class="table">
+      <tbody>
+        <tr><td class="h4">Plan name :</td><td class="h4"><%= @plan.title %></td></tr>
+        <tr><td class="h4">Conductor :</td><td class="h4"><%= @plan.user.name %></td></tr>
+        <tr><td class="h4">Date :</td><td class="h4"><%= @day.met_at.strftime('%Y/%m/%d %H:%M') %></td></tr>
+      </tbody>
+    </table>
 
-<div>
-  <p>Plan name</p>
-  <%= @plan.title %>
+    <div class="text-center" style="margin: 10px 0;">
+      <%= simple_form_for [@plan, @day, @booking] do |f| %>
+        <%= f.error_notification %>
+        <div>
+          <%= javascript_include_tag "https://checkout.webpay.jp/v2/", class: 'webpay-button', :'data-text' => 'Input card info', :'data-submit-text' => 'Pay $' << @plan.amount.to_s, :'data-key' => "#{ENV['WEBPAY_PUBLIC']}", :'data-lang' => 'us' %>
+        </div>
+        <%= f.hidden_field :day_id, :value => @day.id %>
+      <% end %>
+    </div>
+    </div>
+  </div>
 </div>
-
-<div>
-  <p>Conductor</p>
-  <%= @plan.user.name %>
-</div>
-
-<p>Date</p>
-<%= @day.met_at.strftime('%Y/%m/%d %H:%M') %>
-
-<%= simple_form_for [@plan, @day, @booking] do |f| %>
-    <%= f.error_notification %>
-    <div>
-      <%= javascript_include_tag "https://checkout.webpay.jp/v2/", class: 'webpay-button', :'data-text' => 'Input card info', :'data-submit-text' => 'Pay $' << @plan.amount.to_s, :'data-key' => "#{ENV['WEBPAY_PUBLIC']}", :'data-lang' => 'us' %></div>
-    <%= f.hidden_field :day_id, :value => @day.id %>
-<% end %>
