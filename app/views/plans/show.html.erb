@@ -17,8 +17,12 @@
             <p class="h4"><%= @plan.user.name %></p>
           </div>
         </div>
-        <div class="col-xs-6 col-md-12" style="margin: 10px 0;">
-          <div class="bs_boader text-center">
+        <div class="col-xs-6 col-md-12">
+          <div class="bs_boader text-center" style="margin: 10px 0;">
+            <p class="h4">Price</p>
+            <p><%= @plan.amount %> 円</p>
+          </div>
+          <div class="bs_boader text-center" style="margin: 10px 0;">
             <p class="h4">Booking</p>
             <ul class="nav nav-pills nav-stacked" style="padding: 10px;">
               <% @plan.days.each do |day| %>
