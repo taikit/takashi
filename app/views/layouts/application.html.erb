@@ -37,13 +37,9 @@
     <div style="height: 70px;"></div>
     <!-- 主要部分 -->
     <% if notice %>
-      <div class="alert alert-success" role="alert" style="margin-top: 50px">
-        <%= notice %>
-      </div>
+      <div class="alert alert-success" role="alert" style="margin: 0;"><%= notice %></div>
     <% elsif alert %>
-      <div class="alert alert-warning" role="alert" style="margin-top: 50px">
-        <%= alert %>
-      </div>
+      <div class="alert alert-warning" role="alert" style="margin: 0;"><%= alert %></div>
     <% end %>
 
     <!-- 主要部分 -->
