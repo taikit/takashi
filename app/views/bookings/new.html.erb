@@ -13,8 +13,6 @@
 <p>Date</p>
 <%= @day.met_at.strftime('%Y/%m/%d %H:%M') %>
 
-
-
 <%= simple_form_for [@plan, @day, @booking] do |f| %>
     <%= f.error_notification %>
     <div>

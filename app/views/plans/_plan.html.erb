@@ -1,0 +1,11 @@
+<div class="col-md-3 col-sm-6" style="padding: 10px;">
+  <%= link_to(plan, class: "display: block;") do %>
+    <div class="thumbnail" style="box-shadow: 1px 3px 3px #333;">
+      <%= image_tag(plan.image) %>
+      <div class="caption">
+        <h2 class="h3 text-center"><%= plan.title %></h2>
+        <div class="tr word-wrap:break-word;"><%= "こんにちは、今日の天気はいかがですか。こんにちは、今日の天気はいかがですか。こんにちは、今日の天気はいかがですか。".truncate(50) + "..." %></div>
+      </div>
+    </div>
+  <% end %>
+</div>
