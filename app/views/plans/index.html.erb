@@ -1,14 +1,18 @@
-<div class="container">
-  <h1 class="text-center">現在募集中のプラン</h1>
-  <%= link_to 'あなたのオリジナルプランを作成しましょう!', new_plan_path %>
+<div class="container-fluid">
+  <div class="row">
+    <h1 class="text-center">現在募集中のプラン</h1>
+    <div class="text-center"><%= link_to('あなたのオリジナルプランを作成しましょう!', new_plan_path, class: "btn btn-primary", style: "color: #fff;") %></div>
+  </div>
   <div class="row">
     <% @plans.each do |plan| %>
-      <div class="col-md-4" style="padding: 10px;">
+      <div class="col-md-3 col-sm-6" style="padding: 10px;">
         <%= link_to(plan, class: "display: block;") do %>
-          <div class="table" style="background-color: #eec;border: 1px solid #ccc;border-radius: 5px;padding: 10px;">
-            <h2><%= plan.title %></h2>
-            <div class="tr text-center"><%= image_tag(plan.image) %></div>
-            <div class="tr text-center"><%= plan.title.truncate(50) + "..." %></div>
+          <div class="thumbnail" style="box-shadow: 1px 3px 3px #333;">
+            <%= image_tag(plan.image) %>
+            <div class="caption">
+              <h2 class="h3 text-center"><%= plan.title %></h2>
+              <div class="tr word-wrap:break-word;"><%= "こんにちは、今日の天気はいかがですか。こんにちは、今日の天気はいかがですか。こんにちは、今日の天気はいかがですか。".truncate(50) + "..." %></div>
+            </div>
           </div>
         <% end %>
       </div>
