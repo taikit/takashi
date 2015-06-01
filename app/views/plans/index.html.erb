@@ -7,7 +7,7 @@
 
       <%# 各カテゴリーのトップ4を表示 %>
       <% @categories.each do |category| %>
-        <% topplans = category.plans.first(4) %>
+        <% topplans = category.plans.where(area_id: @area).first(4) %>
 
         <%# カテゴリーが存在すする場合のみタイトルとコンテンツを表示 %>
         <% if (!topplans.nil? && !topplans.empty?) %>
