@@ -1,7 +1,7 @@
 <div class="row"></div>
 
 <!-- ===スライダーだよー=================================== -->
-<div id="carousel-example-generic full" class="carousel slide" data-ride="carousel" align="center">
+<div id="carousel-example-generic full" class="carousel slide" data-ride="carousel" align="center" style="height:400px">
   <!-- Indicators -->
   <ol class="carousel-indicators" margin:30px;>
     <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
@@ -10,20 +10,22 @@
   </ol>
 
   <!-- Wrapper for slides -->
-  <div class="carousel-inner" role="listbox" style="height:400px;">
+  <div class="carousel-inner" role="listbox" style="height:350px;">
     <div class="item active">
       <%= image_tag '2.jpg', :alt => '1', :width => '100%' %>
       <div class="carousel-caption"></div>
     </div>
-    <div class="item">
-      <%= image_tag '2.jpg', :alt => '2', :width => '100%' %>
+    <div class="item" style="z-index:2;">
+      <%= image_tag '1.jpg', :alt => '2', :width => '100%' %>
+      <div class="carousel-caption"></div>
+
+      <div class="aaa"><h1>There is always light behind the clouds.</h1></div>
+    </div>
+    <div class="item" style="z-index:2;">
+      <%= image_tag '3.jpg', :alt => '3', :width => '100%' %>
       <div class="carousel-caption"></div>
     </div>
-    <div class="item">
-      <%= image_tag '2.jpg', :alt => '3', :width => '100%' %>
-      <div class="carousel-caption"></div>
-    </div>
-    <div class="aaa"><h1>There is always light behind the clouds.</h1></div>
+    <div class="aaa" style="z-index:1;"><h1>There is always light behind the clouds.</h1></div>
   </div>
 
   <!-- Controls -->
@@ -84,7 +86,7 @@
             <i class="fa fa-space-shuttle fa-3"></i>
           </div>
           <h5 align="center">Let's Go Abroad</h5>
-          <span class="text-muted">I am looking forward to meet you!Don’t walk behind me; I may not lead. Don’t walk in front of me; I may not follow. Just walk beside me and be my friend.</span>
+          <span class="text-muted">Are you considering studying abroad or perhaps even longing to but still hear a little nagging voice in the back of your mind that holds you back? Perhaps there is more than just yourself to persuade. </span>
         </div>
 
         <div class="col-xs-10 col-sm-3 placeholder">
@@ -100,7 +102,7 @@
             <i class="fa fa-globe fa-3"></i>
           </div>
           <h5 align="center">Vision</h5>
-          <span class="text-muted">Something elseDon’t walk behind me; I may not lead. Don’t walk in front of me; I may not follow. Just walk beside me and be my friend.</span>
+          <span class="text-muted">-mission-<br>Activate the connection with the world </span>
         </div>
 
         <!-- </div> -->
