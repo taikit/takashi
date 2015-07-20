@@ -6,7 +6,7 @@
       <div class="text-center">
         <%= image_tag(@plan.image, :width => "600") %>
       </div>
-      <div class="plan_body"></div>
+			<div class="plan_body"><%= sanitize @plan.body %></div>
     </div>
 
     <div class="col-md-3" style="  margin-top: 30px;">
